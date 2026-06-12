@@ -1,0 +1,24 @@
+{
+  "name": "Nütri — planificador nutricional",
+  "short_name": "Nütri",
+  "description": "Planificador semanal de comidas y lista de la compra",
+  "start_url": "./nutri-planner-v6.html",
+  "display": "standalone",
+  "background_color": "#F7F5F0",
+  "theme_color": "#2D6A4F",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%232D6A4F'/%3E%3Ctext y='130' x='96' text-anchor='middle' font-size='110' font-family='serif'%3E🥗%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='100' fill='%232D6A4F'/%3E%3Ctext y='360' x='256' text-anchor='middle' font-size='300' font-family='serif'%3E🥗%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
