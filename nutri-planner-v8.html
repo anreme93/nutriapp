@@ -2079,9 +2079,7 @@ try {
 </script>
 
 <script>
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('nutri-sw.js').catch(()=>{});
-}
+// SW registrado más abajo como blob URL inline
 // Show iOS install prompt if not already installed
 window.addEventListener('load',()=>{
   const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
@@ -2122,6 +2120,20 @@ window.addEventListener('load',()=>{
     const mLink=document.querySelector('link[rel="manifest"]');
     if(mLink)mLink.href=mUrl;
   }catch(e){}
+
+  // Desinstalar cualquier Service Worker anterior (v6, nutri-sw.js, etc.)
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.getRegistrations().then(regs=>{
+      regs.forEach(reg=>{
+        // Desinstalar todos los SW que no sean el nuestro (blob URL)
+        if(!reg.active||!reg.active.scriptURL.startsWith('blob:')){
+          reg.unregister();
+        }
+      });
+    });
+    // Limpiar todas las cachés antiguas excepto la actual
+    caches.keys().then(keys=>keys.forEach(k=>{if(k!=='nutri-v8')caches.delete(k);}));
+  }
 
   // Service Worker para caché offline
   if('serviceWorker' in navigator){
